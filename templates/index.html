@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinnerTonight Bio Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>DinnerTonight Bio Generator</h1>
+        <div class="form-container">
+            <div class="input-group">
+                <label for="career">Career:</label>
+                <select id="career" required>
+                    <option value="">Select a career</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Artist">Artist</option>
+                    <option value="Entrepreneur">Entrepreneur</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Musician">Musician</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="personality">Personality:</label>
+                <select id="personality" required>
+                    <option value="">Select personality trait</option>
+                    <option value="Adventurous">Adventurous</option>
+                    <option value="Creative">Creative</option>
+                    <option value="Compassionate">Compassionate</option>
+                    <option value="Outgoing">Outgoing</option>
+                    <option value="Introverted">Introverted</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="interests">Interests:</label>
+                <select id="interests" required>
+                    <option value="">Select an interest</option>
+                    <option value="Cooking">Cooking</option>
+                    <option value="Traveling">Traveling</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Music">Music</option>
+                    <option value="Literature">Literature</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="hobby">Hobby:</label>
+                <select id="hobby" required>
+                    <option value="">Select a hobby</option>
+                    <option value="playing guitar">Playing Guitar</option>
+                    <option value="hiking">Hiking</option>
+                    <option value="photography">Photography</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="painting">Painting</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="relationship_goal">Relationship Goal:</label>
+                <select id="relationship_goal" required>
+                    <option value="">Select relationship goal</option>
+                    <option value="meaningful conversations">Meaningful Conversations</option>
+                    <option value="long-term relationship">Long-term Relationship</option>
+                    <option value="casual dating">Casual Dating</option>
+                    <option value="adventure partner">Adventure Partner</option>
+                </select>
+            </div>
+
+            <button id="generate-btn">Generate Bio</button>
+        </div>
+
+        <div class="result-container">
+            <h2>Your Generated Bio:</h2>
+            <p id="generated-bio"></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
