@@ -1,3 +1,15 @@
+<!--
+This is the main HTML template for the DinnerTonight Bio Generator application. It includes the following key elements:
+
+- HTML boilerplate with meta tags, title, and CSS links
+- Floating heart animations
+- Main container with header and form inputs
+- Form inputs for career, personality, interests, hobby, and relationship goal
+- "Generate Your Bio" button
+- Result container to display the generated bio
+
+The template is designed to work in conjunction with the JavaScript code in the `main.js` file, which handles the form submission and bio generation logic.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +17,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DinnerTonight Bio Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="floating-heart">💝</div>
+    <div class="floating-heart">💖</div>
+    <div class="floating-heart">💕</div>
+    <div class="floating-heart">💘</div>
+
     <div class="container">
-        <h1>DinnerTonight Bio Generator</h1>
+        <div class="header">
+            <h1>DinnerTonight Bio Generator</h1>
+            <p>✨ Create your perfect dating profile bio with a sprinkle of magic ✨</p>
+        </div>
+        
         <div class="form-container">
             <div class="input-group">
-                <label for="career">Career:</label>
+                <label for="career">Career</label>
                 <select id="career" required>
                     <option value="">Select a career</option>
                     <option value="Software Engineer">Software Engineer</option>
@@ -23,7 +45,7 @@
             </div>
 
             <div class="input-group">
-                <label for="personality">Personality:</label>
+                <label for="personality">Personality</label>
                 <select id="personality" required>
                     <option value="">Select personality trait</option>
                     <option value="Adventurous">Adventurous</option>
@@ -35,7 +57,7 @@
             </div>
 
             <div class="input-group">
-                <label for="interests">Interests:</label>
+                <label for="interests">Interests</label>
                 <select id="interests" required>
                     <option value="">Select an interest</option>
                     <option value="Cooking">Cooking</option>
@@ -47,7 +69,7 @@
             </div>
 
             <div class="input-group">
-                <label for="hobby">Hobby:</label>
+                <label for="hobby">Hobby</label>
                 <select id="hobby" required>
                     <option value="">Select a hobby</option>
                     <option value="playing guitar">Playing Guitar</option>
@@ -59,7 +81,7 @@
             </div>
 
             <div class="input-group">
-                <label for="relationship_goal">Relationship Goal:</label>
+                <label for="relationship_goal">Relationship Goal</label>
                 <select id="relationship_goal" required>
                     <option value="">Select relationship goal</option>
                     <option value="meaningful conversations">Meaningful Conversations</option>
@@ -69,14 +91,15 @@
                 </select>
             </div>
 
-            <button id="generate-btn">Generate Bio</button>
+            <button id="generate-btn">Generate Your Bio</button>
         </div>
 
         <div class="result-container">
-            <h2>Your Generated Bio:</h2>
+            <h2>Your Magic Bio</h2>
             <p id="generated-bio"></p>
         </div>
     </div>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

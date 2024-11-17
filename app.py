@@ -1,14 +1,21 @@
+"""
+This Flask web application provides an API endpoint to generate a unique and engaging dating profile bio based on user-provided information.
+
+The `generate_prompt` function takes a dictionary of user data (career, personality, interests, hobby, and relationship goal) and generates a prompt for the language model to use in generating the bio.
+
+The `/generate-bio` route accepts a POST request with the user data, generates a prompt, and uses the Groq language model to generate a 2-3 sentence bio. The generated bio is then returned as a JSON response.
+
+The application also includes a home route (`/`) that renders the index.html template.
+"""
 from flask import Flask, render_template, request, jsonify
 import os
 from dotenv import load_dotenv
 from groq import Groq
 
-# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
  
-# Initialize Groq client
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY)
 
@@ -31,10 +38,8 @@ def generate_bio():
     try:
         data = request.get_json()
         
-        # Create the prompt for Groq
         prompt = generate_prompt(data)
         
-        # Make request to Groq API
         completion = client.chat.completions.create(
             model="llama3-70b-8192",
             messages=[
@@ -47,7 +52,6 @@ def generate_bio():
             stream=False
         )
         
-        # Extract the generated bio
         generated_bio = completion.choices[0].message.content.strip()
         
         return jsonify({'bio': generated_bio})
@@ -57,4 +61,4 @@ def generate_bio():
         return jsonify({'error': 'Failed to generate bio'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
